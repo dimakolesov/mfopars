@@ -1,0 +1,291 @@
+2026-05-21 23:03:34.942 | INFO     | src.sheets:__init__:48 - Используем существующий лист 'log'
+2026-05-21 23:03:35.365 | INFO     | __main__:scenario_sms:72 - [SMS] Заявитель: Сафонова Оксана Павловна, паспорт 9928 849243
+2026-05-21 23:03:35.938 | INFO     | __main__:scenario_sms:78 - [SMS] Баланс sms-man: 1017.75 ₽
+2026-05-21 23:03:36.098 | ERROR    | __main__:main:225 - Сценарий SMS упал: Не удалось взять номер: {'application_id': 95, 'country_id': 7, 'error_code': 'no_numbers', 'error_id': 2, 'error_msg': 'No numbers, try again...'}
+Traceback (most recent call last):
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 235, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x000002A9AACDD990>
+    │       └ <function run at 0x000002A9A8ABC940>
+    └ <module 'asyncio' from 'C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python310\\lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object main at 0x000002A9AACB5CB0>
+           │    └ <function BaseEventLoop.run_until_complete at 0x000002A9A8ABE320>
+           └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 628, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x000002A9A8B72E60>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 595, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000002A9A8ABFD90>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1881, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000002A9A8A1F2E0>
+    └ <Handle <TaskStepMethWrapper object at 0x000002A9AACECF10>()>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0x000002A9AACECF10>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskStepMethWrapper object at 0x000002A9AACECF10>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskStepMethWrapper object at 0x000002A9AACECF10>()>
+
+> File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 223, in main
+    await scenario_sms(sheets, leads_url, amount, days, headless, sms_timeout)
+          │            │       │          │       │     │         └ 600
+          │            │       │          │       │     └ False
+          │            │       │          │       └ 30
+          │            │       │          └ 15000
+          │            │       └ 'https://t.leads.tech/click/8/330/?sub1=bizdev&sub2=Name_vacancy'
+          │            └ <src.sheets.SheetsLogger object at 0x000002A9AACEC460>
+          └ <function scenario_sms at 0x000002A9AACDD870>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 82, in scenario_sms
+    activated = client.get_number(country_id=country_id, application_id=application_id)
+                │      │                     │                          └ 95
+                │      │                     └ 7
+                │      └ <function SmsManClient.get_number at 0x000002A9AACDD630>
+                └ <src.sms_man.SmsManClient object at 0x000002A9AACECCD0>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\src\sms_man.py", line 129, in get_number
+    raise SmsManError(f"Не удалось взять номер: {data}")
+          └ <class 'src.sms_man.SmsManError'>
+
+src.sms_man.SmsManError: Не удалось взять номер: {'application_id': 95, 'country_id': 7, 'error_code': 'no_numbers', 'error_id': 2, 'error_msg': 'No numbers, try again...'}
+2026-05-21 23:12:32.929 | INFO     | src.sheets:__init__:48 - Используем существующий лист 'log'
+2026-05-21 23:12:33.286 | INFO     | __main__:scenario_sms:72 - [SMS] Заявитель: Голубева Зинаида Дмитриевна, паспорт 9995 409955
+2026-05-21 23:12:33.937 | INFO     | __main__:scenario_sms:78 - [SMS] Баланс sms-man: 953.49 ₽
+2026-05-21 23:12:34.128 | ERROR    | __main__:main:225 - Сценарий SMS упал: Не удалось взять номер: {'application_id': 3, 'country_id': 237, 'error_code': 'balance', 'error_msg': 'To send API requests, your balance must exceed $14. Need additional funds? Please top up your balance.'}
+Traceback (most recent call last):
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 235, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x00000264772EDE10>
+    │       └ <function run at 0x00000264750CC940>
+    └ <module 'asyncio' from 'C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python310\\lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object main at 0x00000264772D1620>
+           │    └ <function BaseEventLoop.run_until_complete at 0x00000264750CE320>
+           └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 628, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x0000026475182E60>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 595, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000264750CFD90>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1881, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000002647502F2E0>
+    └ <Handle <TaskStepMethWrapper object at 0x00000264772BBE20>()>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0x00000264772BBE20>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskStepMethWrapper object at 0x00000264772BBE20>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskStepMethWrapper object at 0x00000264772BBE20>()>
+
+> File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 223, in main
+    await scenario_sms(sheets, leads_url, amount, days, headless, sms_timeout)
+          │            │       │          │       │     │         └ 600
+          │            │       │          │       │     └ False
+          │            │       │          │       └ 30
+          │            │       │          └ 15000
+          │            │       └ 'https://t.leads.tech/click/8/330/?sub1=bizdev&sub2=Name_vacancy'
+          │            └ <src.sheets.SheetsLogger object at 0x00000264772BBB80>
+          └ <function scenario_sms at 0x00000264772EDCF0>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 82, in scenario_sms
+    activated = client.get_number(country_id=country_id, application_id=application_id)
+                │      │                     │                          └ 3
+                │      │                     └ 0
+                │      └ <function SmsManClient.get_number at 0x00000264772EDAB0>
+                └ <src.sms_man.SmsManClient object at 0x00000264772F8B80>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\src\sms_man.py", line 129, in get_number
+    raise SmsManError(f"Не удалось взять номер: {data}")
+          └ <class 'src.sms_man.SmsManError'>
+
+src.sms_man.SmsManError: Не удалось взять номер: {'application_id': 3, 'country_id': 237, 'error_code': 'balance', 'error_msg': 'To send API requests, your balance must exceed $14. Need additional funds? Please top up your balance.'}
+2026-05-21 23:15:13.786 | INFO     | src.sheets:__init__:48 - Используем существующий лист 'log'
+2026-05-21 23:15:14.165 | INFO     | __main__:scenario_sms:72 - [SMS] Заявитель: Костин Любим Ильясович, паспорт 9951 490801
+2026-05-21 23:15:14.671 | INFO     | __main__:scenario_sms:78 - [SMS] Баланс sms-man: 1017.75 ₽
+2026-05-21 23:15:14.866 | ERROR    | __main__:main:225 - Сценарий SMS упал: Не удалось взять номер: {'application_id': 3, 'country_id': 321, 'error_code': 'no_numbers', 'error_id': 3, 'error_msg': 'No numbers, try again...'}
+Traceback (most recent call last):
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 235, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x00000107A1C1DE10>
+    │       └ <function run at 0x000001079F9FC940>
+    └ <module 'asyncio' from 'C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python310\\lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object main at 0x00000107A1C019A0>
+           │    └ <function BaseEventLoop.run_until_complete at 0x000001079F9FE320>
+           └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 628, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x000001079FAB2E60>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 595, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001079F9FFD90>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1881, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001079F95F2E0>
+    └ <Handle <TaskStepMethWrapper object at 0x00000107A1BA08E0>()>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0x00000107A1BA08E0>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskStepMethWrapper object at 0x00000107A1BA08E0>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskStepMethWrapper object at 0x00000107A1BA08E0>()>
+
+> File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 223, in main
+    await scenario_sms(sheets, leads_url, amount, days, headless, sms_timeout)
+          │            │       │          │       │     │         └ 600
+          │            │       │          │       │     └ False
+          │            │       │          │       └ 30
+          │            │       │          └ 15000
+          │            │       └ 'https://t.leads.tech/click/8/330/?sub1=bizdev&sub2=Name_vacancy'
+          │            └ <src.sheets.SheetsLogger object at 0x00000107A1BA03D0>
+          └ <function scenario_sms at 0x00000107A1C1DCF0>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 82, in scenario_sms
+    activated = client.get_number(country_id=country_id, application_id=application_id)
+                │      │                     │                          └ 3
+                │      │                     └ 0
+                │      └ <function SmsManClient.get_number at 0x00000107A1C1DAB0>
+                └ <src.sms_man.SmsManClient object at 0x00000107A1BA0C70>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\src\sms_man.py", line 129, in get_number
+    raise SmsManError(f"Не удалось взять номер: {data}")
+          └ <class 'src.sms_man.SmsManError'>
+
+src.sms_man.SmsManError: Не удалось взять номер: {'application_id': 3, 'country_id': 321, 'error_code': 'no_numbers', 'error_id': 3, 'error_msg': 'No numbers, try again...'}
+2026-05-21 23:17:03.936 | INFO     | src.sheets:__init__:48 - Используем существующий лист 'log'
+2026-05-21 23:17:04.271 | INFO     | __main__:scenario_sms:72 - [SMS] Заявитель: Пестова Лидия Леоновна, паспорт 9960 118854
+2026-05-21 23:17:04.734 | INFO     | __main__:scenario_sms:78 - [SMS] Баланс sms-man: 1017.75 ₽
+2026-05-21 23:17:04.900 | ERROR    | __main__:main:225 - Сценарий SMS упал: Не удалось взять номер: {'application_id': 95, 'country_id': 7, 'error_code': 'no_numbers', 'error_id': 2, 'error_msg': 'No numbers, try again...'}
+Traceback (most recent call last):
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 235, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x0000019B4E10DE10>
+    │       └ <function run at 0x0000019B4BEEC940>
+    └ <module 'asyncio' from 'C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python310\\lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object main at 0x0000019B4E0F1690>
+           │    └ <function BaseEventLoop.run_until_complete at 0x0000019B4BEEE320>
+           └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 628, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x0000019B4BFA2E60>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 595, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x0000019B4BEEFD90>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1881, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x0000019B4BE4F2E0>
+    └ <Handle <TaskStepMethWrapper object at 0x0000019B4B5EF790>()>
+
+  File "C:\Users\Dmitry\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0x0000019B4B5EF790>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskStepMethWrapper object at 0x0000019B4B5EF790>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskStepMethWrapper object at 0x0000019B4B5EF790>()>
+
+> File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 223, in main
+    await scenario_sms(sheets, leads_url, amount, days, headless, sms_timeout)
+          │            │       │          │       │     │         └ 600
+          │            │       │          │       │     └ False
+          │            │       │          │       └ 30
+          │            │       │          └ 15000
+          │            │       └ 'https://t.leads.tech/click/8/330/?sub1=bizdev&sub2=Name_vacancy'
+          │            └ <src.sheets.SheetsLogger object at 0x0000019B4E1144C0>
+          └ <function scenario_sms at 0x0000019B4E10DCF0>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\main.py", line 82, in scenario_sms
+    activated = client.get_number(country_id=country_id, application_id=application_id)
+                │      │                     │                          └ 95
+                │      │                     └ 7
+                │      └ <function SmsManClient.get_number at 0x0000019B4E10DAB0>
+                └ <src.sms_man.SmsManClient object at 0x0000019B4E114EE0>
+
+  File "C:\Users\Dmitry\Desktop\mfo-parser\src\sms_man.py", line 129, in get_number
+    raise SmsManError(f"Не удалось взять номер: {data}")
+          └ <class 'src.sms_man.SmsManError'>
+
+src.sms_man.SmsManError: Не удалось взять номер: {'application_id': 95, 'country_id': 7, 'error_code': 'no_numbers', 'error_id': 2, 'error_msg': 'No numbers, try again...'}
+2026-05-21 23:17:26.154 | INFO     | src.sheets:__init__:48 - Используем существующий лист 'log'
+2026-05-21 23:17:26.636 | INFO     | __main__:scenario_sms:72 - [SMS] Заявитель: Костин Аркадий Фомич, паспорт 9927 635397
+2026-05-21 23:17:27.104 | INFO     | __main__:scenario_sms:78 - [SMS] Баланс sms-man: 1017.75 ₽
+2026-05-21 23:17:28.128 | INFO     | __main__:scenario_sms:83 - [SMS] Получен номер +6285133255231 (request_id=826184184)
+2026-05-21 23:17:29.151 | INFO     | src.mfo_form:open_via_leads_tech_and_fill:245 - Открываю CPA-ссылку: https://t.leads.tech/click/8/330/?sub1=bizdev&sub2=Name_vacancy
+2026-05-21 23:17:31.520 | INFO     | src.mfo_form:open_via_leads_tech_and_fill:254 - Финальный URL после редиректов: https://web-zaim.ru/installment?utm_source=leadstech&utm_medium=affiliate&utm_content=8&utm_campaign=bizdev&click_id=f86a7a4c10da428a9fec544cc37ae5bf&erid=2W5zFGXjVAx | title=
+2026-05-21 23:17:31.633 | WARNING  | src.mfo_form:_try_fill:67 - [amount] ни один селектор не сработал
+2026-05-21 23:17:31.647 | WARNING  | src.mfo_form:_try_fill:67 - [days] ни один селектор не сработал
+2026-05-21 23:17:31.661 | WARNING  | src.mfo_form:_try_fill:67 - [phone] ни один селектор не сработал
+2026-05-21 23:17:31.672 | WARNING  | src.mfo_form:_try_fill:67 - [email] ни один селектор не сработал
+2026-05-21 23:17:31.688 | WARNING  | src.mfo_form:_try_fill:67 - [fio] ни один селектор не сработал
+2026-05-21 23:17:31.688 | WARNING  | src.mfo_form:_try_fill:67 - [lastName] ни один селектор не сработал
+2026-05-21 23:17:31.703 | WARNING  | src.mfo_form:_try_fill:67 - [firstName] ни один селектор не сработал
+2026-05-21 23:17:31.709 | WARNING  | src.mfo_form:_try_fill:67 - [middleName] ни один селектор не сработал
+2026-05-21 23:17:31.720 | WARNING  | src.mfo_form:_try_fill:67 - [birthDate] ни один селектор не сработал
+2026-05-21 23:17:31.720 | WARNING  | src.mfo_form:_try_fill:67 - [passportSeries] ни один селектор не сработал
+2026-05-21 23:17:31.738 | WARNING  | src.mfo_form:_try_fill:67 - [passportNumber] ни один селектор не сработал
+2026-05-21 23:17:31.752 | WARNING  | src.mfo_form:_try_fill:67 - [passportIssuedDate] ни один селектор не сработал
+2026-05-21 23:17:31.771 | WARNING  | src.mfo_form:_try_fill:67 - [passportIssuedBy] ни один селектор не сработал
+2026-05-21 23:17:31.783 | WARNING  | src.mfo_form:_try_fill:67 - [depCode] ни один селектор не сработал
+2026-05-21 23:17:34.137 | INFO     | src.sheets:_append:140 - Sheets: записали leads_tech source_addr='(leads.tech submit)'
+2026-05-21 23:17:34.143 | INFO     | __main__:fill_task:103 - [SMS] Заявка отправлена на 'https://web-zaim.ru/installment?utm_source=leadstech&utm_medium=affiliate&utm_content=8&utm_campaign=bizdev&click_id=f86a7a4c10da428a9fec544cc37ae5bf&erid=2W5zFGXjVAx'
+2026-05-21 23:27:30.638 | INFO     | __main__:scenario_sms:151 - [SMS] Активация 826184184 закрыта

@@ -1,0 +1,3 @@
+2026-05-21 23:00:30.210 | INFO     | src.sheets:__init__:51 - Создали лист 'log'
+2026-05-21 23:00:30.990 | INFO     | __main__:<module>:98 - FastAPI listener стартует на 0.0.0.0:8000
+2026-05-21 23:00:30.990 | INFO     | __main__:<module>:99 - Sheet ID: 15ShoFWg_J_5c8jyTtdLMyvHPby8HNMk3gzhRFYicAXI, лист: log
